@@ -7,16 +7,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     'middleware' => 'api',
-    'prefix' => 'auth'
 ], function ($router) {
-    Route::post('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/users', [AuthController::class, 'register'])->name('register');
     Route::post('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api')->name('logout');
     Route::post('/refresh', [AuthController::class, 'refresh'])->middleware('auth:api')->name('refresh');
 });
-Route::get('users', [UserController::class, 'index']);
+Route::get('users', [UserController::class, 'index'])->middleware('role:admin');
 Route::get('users/{user}', [UserController::class, 'show']);
-Route::post('update-user/{user}', [UserController::class, 'update'])->middleware('auth:api');
+Route::post('update-user/{id}', [UserController::class, 'update'])->middleware('role:admin');
 Route::delete('delete-user/{id}', [UserController::class, 'destroy']);
 // Route::middleware('role:admin')->group(function () {
 //     // Routes accessible only by admin

@@ -16,7 +16,7 @@ class StoreUserRequest extends FormRequest
     {
         $user = Auth::user();
         // Ensure that there is an authenticated user
-        if (!$user || !$user->role=="admin") {
+        if (!$user || !$user->role == "admin") {
             abort(response()->json([
                 'error' => 'You are not authorized to perform this action.',
             ], 403));
@@ -35,6 +35,7 @@ class StoreUserRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:255|email|unique:users,email',
+            'password'=>'sometimes|string|min:8|max:50',
         ];
     }
     /**

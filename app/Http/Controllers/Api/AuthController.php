@@ -17,13 +17,11 @@ class AuthController extends Controller
     public function register(StoreUserRequest $request)
     {
 
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
         ]);
-        echo $request->name + $user->id;
-        $user->password = Hash::make($request->name + $user->id);
+        $user->password = $request->name . '/13&T76#q@' . $user->id . '*FG5%7#';
         $user->save();
         $token = Auth::login($user);
         return response()->json([
