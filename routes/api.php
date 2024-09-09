@@ -16,8 +16,8 @@ Route::group([
     Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api')->name('logout');
     Route::post('/refresh', [AuthController::class, 'refresh'])->middleware('auth:api')->name('refresh');
 });
-Route::get('users', [UserController::class, 'index']);
-Route::get('users/{id}', [UserController::class, 'show']);
+Route::get('users', [UserController::class, 'index'])->middleware('role:admin');
+Route::get('users/{id}', [UserController::class, 'show'])->middleware('role:admin');
 Route::post('update-user/{id}', [UserController::class, 'update'])->middleware('role:admin');
 Route::delete('users/{id}', [UserController::class, 'softDelete'])->middleware('role:admin');
 Route::post('users/{id}/restore', [UserController::class, 'restore'])->middleware('role:admin');
@@ -32,8 +32,8 @@ Route::post('departments', [DepartmentController::class, 'store'])->middleware('
 Route::post('/tasks/{id}/assign', [TaskController::class, 'assign_task_to_user']);
 
 //======================tasks
-Route::get('tasks', [TaskController::class, 'index']);
-Route::get('tasks/{id}', [TaskController::class, 'show']);
+Route::get('tasks', [TaskController::class, 'index'])->middleware('role:admin,manager');
+Route::get('tasks/{id}', [TaskController::class, 'show'])->middleware('role:admin,manager,employee');
 Route::post('tasks', [TaskController::class, 'store'])->middleware('role:admin,manager');
 Route::put('update-task/{id}', [TaskController::class, 'update'])->middleware(['auth:api', 'role:admin,manager,employee']);
 Route::delete('tasks/{id}', [TaskController::class, 'softDelete'])->middleware('role:admin,manager');
