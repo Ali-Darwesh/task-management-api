@@ -2,12 +2,13 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Task;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Auth;
 
-class UpdateUserRequest extends FormRequest
+class UpdateTaskRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,12 +16,19 @@ class UpdateUserRequest extends FormRequest
     public function authorize(): bool
     {
         $user = Auth::user();
+        $taskId = $this->route('id');
+
+        // Find the task with the given ID
+        $task = Task::findOrFail($taskId);
         // Ensure that there is an authenticated user
-        if (!$user || !$user->role == "admin") {
+        echo $this->route;
+        if (!$user || $user->role !== "admin" && $user->role !== "manager" && $user->id !== $task->assigned_to) {
             abort(response()->json([
-                'error' => 'You are not authorized to perform this action.',
+                'error' => 'Just the user who assigned to do this task allowed to update it ',
             ], 403));
         }
+
+        echo $user;
 
         return true;
     }
@@ -32,13 +40,21 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules(): array
     {
+        $user = Auth::user();
+        if ($user && $user->role === 'employee') {
+            return [
+                'description' => 'sometimes|string|max:255',
+                'priority' => 'sometimes|in:low,medium,high,urgent',
+                'status' => 'sometimes|in:pending,in_progress,completed',
+            ];
+        }
         return [
-            'name' => 'sometimes|string|max:255',
-            'email' => 'sometimes|string|max:255|email|unique:users,email',
-            'password' => 'sometimes|string|min:8|max:50',
-            'role' => 'sometimes|in:admin,manager,employee',
-            'assign_tasks_to_newEmployee' => 'sometimes|integer|exists:users,id',
-            'department_id' => 'sometimes|integer|exists:departments,id'
+            'title' => 'sometimes|string|max:255',
+            'description' => 'sometimes|string|max:255',
+            'due_date' => 'sometimes|date|after_or_equal:today ',
+            'assigned_to' => 'sometimes|integer|exists:employees,employee_id',
+            'priority' => 'sometimes|in:low,medium,high,urgent',
+            'status' => 'sometimes|in:pending,in_progress,completed',
         ];
     }
     /**

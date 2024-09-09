@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Manager extends Model
 {
     use HasFactory;
-    protected $guarded = [
+    protected $fillable = [
         'manager_id',
+        'department_id'
     ];
     public function user(): BelongsTo
     {

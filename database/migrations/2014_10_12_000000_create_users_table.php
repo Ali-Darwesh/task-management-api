@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->rememberToken();
             $table->enum('role', ['admin', 'manager', 'employee'])->default('employee');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -29,5 +30,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropSoftDeletes(); // Removes the `deleted_at` column
+        });
     }
 };

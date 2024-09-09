@@ -1,0 +1,1406 @@
+{
+	"info": {
+		"_postman_id": "72886e73-7daf-4202-bafc-4409a3ec8376",
+		"name": "endpointTask4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26325739"
+	},
+	"item": [
+		{
+			"name": "admin Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@example.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}api/auth/login",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "admin Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/login",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 17:30:18 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"user\": {\n        \"id\": 1,\n        \"name\": \"Admin\",\n        \"email\": \"admin@example.com\",\n        \"email_verified_at\": null,\n        \"role\": \"admin\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-09-09T15:37:40.000000Z\",\n        \"updated_at\": \"2024-09-09T15:37:40.000000Z\"\n    },\n    \"authorisation\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI1OTAzMDE4LCJleHAiOjE3MjU5MDY2MTgsIm5iZiI6MTcyNTkwMzAxOCwianRpIjoiR0dzWnh1bzBGNnk3UTA2ciIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.einyK8enHWEefiJRUaxT_UwLDfmL9OUsMZSaRl5DzFE\",\n        \"type\": \"bearer\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "register",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU4MjQ2OTQsImV4cCI6MTcyNTgyODI5NCwibmJmIjoxNzI1ODI0Njk0LCJqdGkiOiJUcFNFRlNFVUJaOXdhM05mIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.WqYCr5awAYnMrp8DW9FnolByo_vfbYXZFoAMV_c57SI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "ali",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ali11@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}api/users",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ali",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ali4@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/users",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 16:32:26 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"User created successfully\",\n    \"user\": {\n        \"name\": \"ali\",\n        \"email\": \"ali4@gmail.com\",\n        \"updated_at\": \"2024-09-09T16:32:26.000000Z\",\n        \"created_at\": \"2024-09-09T16:32:25.000000Z\",\n        \"id\": 4\n    },\n    \"authorisation\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzZXJzIiwiaWF0IjoxNzI1ODk5NTQ2LCJleHAiOjE3MjU5MDMxNDYsIm5iZiI6MTcyNTg5OTU0NiwianRpIjoiSkdDQUpvY2NOWmxqR0VDUCIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.8hM0W7P1Fx6VYroOg4ndJ_e7FNQsqPVGPRBL0vzNZaw\",\n        \"type\": \"bearer\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}api/auth/login?email=ali@gmail.com&password=12345678",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "ali@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "12345678"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addDepartment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI1ODc1MTcwLCJleHAiOjE3MjU4Nzg3NzAsIm5iZiI6MTcyNTg3NTE3MCwianRpIjoid3JPcXZXbHNrcFlNREZNMiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.Qr4iqI0oN6I3spfWUnuoCGOZT2ITjUN3FZsBwgyKzKQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "department_name",
+							"value": "data_base",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}api/departments",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"departments"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "addDepartment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "department_name",
+									"value": "dataBase",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/departments",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"departments"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 15:25:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "56"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"department_name\": \"dataBase\",\n    \"updated_at\": \"2024-09-09T15:25:44.000000Z\",\n    \"created_at\": \"2024-09-09T15:25:44.000000Z\",\n    \"id\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "addTask",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI1OTAzMDE4LCJleHAiOjE3MjU5MDY2MTgsIm5iZiI6MTcyNTkwMzAxOCwianRpIjoiR0dzWnh1bzBGNnk3UTA2ciIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.einyK8enHWEefiJRUaxT_UwLDfmL9OUsMZSaRl5DzFE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "task1",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "dddddd",
+							"type": "text"
+						},
+						{
+							"key": "due_date",
+							"value": "20-09-2024 9:01",
+							"type": "text"
+						},
+						{
+							"key": "assigned_to",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "priority",
+							"value": "low",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}api/tasks",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "addTask",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "task1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "dddddd",
+									"type": "text"
+								},
+								{
+									"key": "due_date",
+									"value": "20-09-2024 9:01",
+									"type": "text"
+								},
+								{
+									"key": "assigned_to",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "high",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/tasks",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 18:19:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"task1\",\n    \"description\": \"dddddd\",\n    \"due_date\": \"20-09-2024 09:01\",\n    \"assigned_to\": \"3\",\n    \"priority\": \"high\",\n    \"updated_on\": \"2024-09-09T18:19:13.000000Z\",\n    \"created_on\": \"2024-09-09T18:19:13.000000Z\",\n    \"task_id\": 11\n}"
+				}
+			]
+		},
+		{
+			"name": "updateTask",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI1ODkwNzc4LCJleHAiOjE3MjU4OTQzNzgsIm5iZiI6MTcyNTg5MDc3OCwianRpIjoiU0FwcHFDU1J0M1U0REJmYyIsInN1YiI6IjYiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.J6onoEuNL72uj3CsZvixppVYw3o6EBYyuUPTuqHKzbo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "status",
+							"value": "pending",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}api/update-task/1",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"update-task",
+						"1"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "inprogress",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI1ODc5MzIzLCJleHAiOjE3MjU4ODI5MjMsIm5iZiI6MTcyNTg3OTMyMywianRpIjoiQTJkT1FBWVVOOGJ5b2RhbiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.00rRDEP_CJIW06jNTVJMpdANDPsx8C3LbNzcz6G5lLw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "ali4",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "as4@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "manager",
+							"type": "text"
+						},
+						{
+							"key": "assign_tasks_to_newEmployee",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "department_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}api/update-user/5",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"update-user",
+						"5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "ali4",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "as4@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "manager",
+									"type": "text"
+								},
+								{
+									"key": "assign_tasks_to_newEmployee",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/update-user/4",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"update-user",
+								"4"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 15:26:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"name\": \"ali4\",\n    \"email\": \"ali4@gmail.com\",\n    \"email_verified_at\": null,\n    \"role\": \"manager\",\n    \"deleted_at\": null,\n    \"created_at\": \"2024-09-09T15:25:35.000000Z\",\n    \"updated_at\": \"2024-09-09T15:26:55.000000Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}api/users?name=ali&email=ali3@gmail.com&password=12345678&password_confirmation=12345678",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "ali"
+						},
+						{
+							"key": "email",
+							"value": "ali3@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "12345678"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "12345678"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU4MjQ2OTQsImV4cCI6MTcyNTgyODI5NCwibmJmIjoxNzI1ODI0Njk0LCJqdGkiOiJUcFNFRlNFVUJaOXdhM05mIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.WqYCr5awAYnMrp8DW9FnolByo_vfbYXZFoAMV_c57SI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "ali",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/users",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 15:47:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Admin\",\n        \"email\": \"admin@example.com\",\n        \"email_verified_at\": null,\n        \"role\": \"admin\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-09-09T15:37:40.000000Z\",\n        \"updated_at\": \"2024-09-09T15:37:40.000000Z\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"ali\",\n        \"email\": \"ali3@gmail.com\",\n        \"email_verified_at\": null,\n        \"role\": \"employee\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-09-09T15:38:10.000000Z\",\n        \"updated_at\": \"2024-09-09T15:38:10.000000Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}api/users/2",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "deleteUser",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}api/users/3",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 16:37:00 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"user soft deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "restoreUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}api/users/2/restore",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"users",
+						"2",
+						"restore"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}api/users/2/restore",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"users",
+								"2",
+								"restore"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 16:21:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"user restored successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "forceDeleteUsers",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}api/users/2/force",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"users",
+						"2",
+						"force"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTasks",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}api/users/2",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "restoreTasks",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}api/users/2/restore",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"users",
+						"2",
+						"restore"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "forceDeleteTasks",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}api/users/2/force",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"users",
+						"2",
+						"force"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTasks",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "/tasks/{id}/assign",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "assigned_to",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}api/tasks/1/assign",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"tasks",
+						"1",
+						"assign"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/tasks/{id}/assign",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "assigned_to",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/tasks/1/assign",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"tasks",
+								"1",
+								"assign"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 17:08:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"task_id\": 1,\n    \"title\": \"task1\",\n    \"description\": \"dddddd\",\n    \"due_date\": \"2024-09-10\",\n    \"priority\": \"low\",\n    \"status\": \"pending\",\n    \"assigned_to\": \"3\",\n    \"deleted_at\": null,\n    \"created_on\": \"2024-09-09T15:38:20.000000Z\",\n    \"updated_on\": \"2024-09-09T17:08:32.000000Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "getUserInfo",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}api/users/4",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"users",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 17:26:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": {\n        \"id\": 4,\n        \"name\": \"ali\",\n        \"email\": \"ali4@gmail.com\",\n        \"email_verified_at\": null,\n        \"role\": \"employee\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-09-09T16:32:25.000000Z\",\n        \"updated_at\": \"2024-09-09T16:32:26.000000Z\"\n    },\n    \"tasks\": [\n        {\n            \"task_id\": 3,\n            \"title\": \"task1\",\n            \"description\": \"dddddd\",\n            \"due_date\": \"2024-09-10\",\n            \"priority\": \"low\",\n            \"status\": \"pending\",\n            \"assigned_to\": 4,\n            \"deleted_at\": null,\n            \"created_on\": \"2024-09-09T16:34:07.000000Z\",\n            \"updated_on\": \"2024-09-09T16:34:07.000000Z\"\n        },\n        {\n            \"task_id\": 4,\n            \"title\": \"task1\",\n            \"description\": \"dddddd\",\n            \"due_date\": \"2024-09-10\",\n            \"priority\": \"low\",\n            \"status\": \"pending\",\n            \"assigned_to\": 4,\n            \"deleted_at\": null,\n            \"created_on\": \"2024-09-09T17:25:35.000000Z\",\n            \"updated_on\": \"2024-09-09T17:25:35.000000Z\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8000/",
+			"type": "string"
+		}
+	]
+}

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
+use App\Models\Task;
 use App\Models\User;
 use App\Services\UserService;
 use Exception;
@@ -42,14 +44,17 @@ class UserController extends Controller
      * @param User $user
      * @return \Illuminate\HTTP\JsonResponse
      */
-    public function show(User $user)
+    public function show($id)
     {
         try {
-            $user = User::findOrFail($user->id);
-
+            $user = User::findOrFail($id);
+            if ($user->role === 'employee') {
+                $tasks = Task::where('assigned_to', $user->id)->get();
+                return response()->json(['user' => $user, 'tasks' => $tasks], 200);
+            }
             return response()->json(['user' => $user], 200);
         } catch (Exception $e) {
-            return response()->json(['error' => 'Failed to retrieve user details', 'message' => $e->getMessage()], 500);
+            return response()->json(['error' => 'Failed to retrieve user details not found', 'message' => $e->getMessage()], 404);
         }
     }
     /**
@@ -57,15 +62,14 @@ class UserController extends Controller
      * @param Request $request , User $user
      * @return \Illuminate\HTTP\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
         $user = User::findOrFail($id);
         try {
             // return response()->json($request->all(), 200);
             $validatedData = $request->all();
-            echo $validatedData['role'];
-
             $user = $this->userService->updateUser($user, $validatedData);
+
 
             return response()->json($user, 201);
         } catch (Exception $e) {
@@ -77,13 +81,25 @@ class UserController extends Controller
      * @param Movie $movie
      * @return \Illuminate\HTTP\JsonResponse
      */
-    public function destroy(User $user)
+    // Soft Delete user
+    public function softDelete($id)
     {
-        try {
-            $this->userService->deleteUser($user);
-            return response()->json(null, 204);
-        } catch (Exception $e) {
-            return response()->json(['error' => 'Failed to delete user', 'message' => $e->getMessage()], 500);
-        }
+        $user = User::findOrFail($id);
+        // Check if the user exists
+        $this->userService->softDelete($id); // Soft delete the user
+        return response()->json(['message' => 'user soft deleted successfully'], 200);
+    }
+
+    // Restore Soft Deleted user
+    public function restore($id)
+    {
+        $this->userService->restore($id);
+        return response()->json(['message' => 'user restored successfully'], 200);
+    }
+    public function forceDelete($id)
+    {
+        $this->userService->forceDelete($id);  // Permanently delete the user
+
+        return response()->json(['message' => 'user permanently deleted successfully'], 200);
     }
 }

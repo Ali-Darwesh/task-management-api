@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('manager_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('department_id')->references('id')->on('departments')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

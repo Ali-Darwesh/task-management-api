@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
+use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,8 +22,11 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
         ]);
-        $user->password = $request->name . '/13&T76#q@' . $user->id . '*FG5%7#';
+        $user->password = Hash::make($request->password);
         $user->save();
+        Employee::create([
+            'employee_id' => $user->id,
+        ]);
         $token = Auth::login($user);
         return response()->json([
             'status' => 'success',

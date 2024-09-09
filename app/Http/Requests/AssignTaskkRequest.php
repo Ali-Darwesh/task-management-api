@@ -7,13 +7,20 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Auth;
 
-class StoreUserRequest extends FormRequest
+class AssignTaskkRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
+        // $user = Auth::user();
+        // // Ensure that there is an authenticated user
+        // if (!$user || $user->role !== "admin" && !$user->role !== "manager") {
+        //     abort(response()->json([
+        //         'error' => 'You are not authorized to perform this action.',
+        //     ], 403));
+        // }
 
         return true;
     }
@@ -26,11 +33,7 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|max:255|email|unique:users,email',
-            'password' => 'sometimes|string|min:8|max:50',
-            'role' => 'sometimes|in:manager,employee',
-
+            'assigned_to' => 'required|integer|exists:employees,employee_id',
         ];
     }
     /**

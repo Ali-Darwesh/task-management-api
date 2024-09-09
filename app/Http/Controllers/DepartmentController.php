@@ -20,7 +20,10 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $department = Department::create([
+            'department_name' => $request->department_name,
+        ]);
+        return response($department, 200);
     }
 
     /**

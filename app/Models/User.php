@@ -4,7 +4,9 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -12,20 +14,25 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    protected $fillable = [
+        'name',
+        'email',
+    ];
     protected $guarded = ['password', 'role'];
-
+    protected $dates = ['deleted_at'];
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
+
     protected $hidden = [
         'password',
         'remember_token',
@@ -70,5 +77,9 @@ class User extends Authenticatable implements JWTSubject
     public function employee(): HasOne
     {
         return $this->hasOne(Admin::class, 'employee_id', 'id'); // 'employee_id' is the foreign key in the admins table
+    }
+    public function tasks(): HasMany
+    {
+        return $this->hasMany(Task::class, 'assigned_to', 'id');
     }
 }
